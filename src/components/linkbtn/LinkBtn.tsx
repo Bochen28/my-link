@@ -7,7 +7,7 @@ interface LinkBtnProps {
 
 
 function LinkBtn({ name, direction }: LinkBtnProps) {
-  return <a className={styles.link} href={direction} target="_blank" >{name}</a>;
+  return <a className={styles.link} href={direction} >{name}</a>;
 }
 
 export default LinkBtn;

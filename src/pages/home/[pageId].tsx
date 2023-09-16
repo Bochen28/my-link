@@ -1,14 +1,14 @@
-import CategoryBox from "@/components/categoryBox/CategoryBox";
 import Navbar from "@/components/navbar/Navbar";
+import LinkBox from "@/components/linkBox/LinkBox";
 import "@/app/globals.sass";
 
-function Home() {
+function LinkPage() {
   return (
     <>
       <Navbar />
-      <CategoryBox />
+      <LinkBox />
     </>
   );
 }
 
-export default Home;
+export default LinkPage;
