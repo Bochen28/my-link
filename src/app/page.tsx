@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Backdrop from "@/components/backdrop/backdrop";
 import styles from "./page.module.sass";
 
 function Home() {
@@ -8,27 +9,28 @@ function Home() {
 
   return (
     <main className={styles.main}>
-      <h1>Welcome to My Link</h1>
-      <a className={styles.mainBtn} href="/home">
-        Get Started
-      </a>
-      <a
-        className={styles.mainBtn}
-        onClick={() => {
-          setModalOpen(true);
-        }}
-      >
-        Load your Links
-      </a>
+      <div>
+        <h1>Welcome to My Link</h1>
+        <a className={styles.mainBtn} href="/home">
+          Get Started
+        </a>
+        <a
+          className={styles.mainBtn}
+          onClick={() => {
+            setModalOpen(true);
+          }}
+        >
+          Load your Links
+        </a>
+      </div>
 
       {isModalOpen ? (
         <>
-          <div
-            className={styles.backdrop}
-            onClick={() => {
+          <Backdrop
+            click={() => {
               setModalOpen(false);
             }}
-          ></div>
+          />
           <div className={styles.modal}>
             <h2>Insert Your Save</h2>
             <div

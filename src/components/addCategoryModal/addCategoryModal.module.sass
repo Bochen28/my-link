@@ -1,0 +1,60 @@
+.modal
+    z-index: 1
+    position: absolute
+    display: flex
+    flex-wrap: wrap
+    gap: 1rem
+    top: 50%
+    left: 50%
+    padding: 2rem
+    border-radius: .375rem
+    transform: translate(-50%, -50%)
+    background: rgb(36, 45, 57)
+
+    h2
+        flex-basis: 100%
+        text-align: center
+
+.xButton
+    position: absolute
+    top: 15%
+    right: 10%
+    height: 1rem
+    width: 1rem
+    cursor: pointer
+
+.xButton::after,
+.xButton::before
+    content: ""
+    position: absolute
+    width: 1rem
+    height: .1875rem
+    background-color: #FFFFFF
+    top: 5%
+    right: 5%
+    transform: translateY(-50%)
+
+.xButton::after
+    transform: rotate(45deg)
+
+.xButton::before
+    transform: rotate(-45deg)
+
+.categoryForm
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    width: 100%
+    gap: 0.5rem
+
+    input
+        flex-basis: 100%
+        padding: 0.2rem
+        flex-grow: 1
+
+    button
+        height: 2rem
+        width: 100%
+        border: none
+        border-radius: .375rem
+        cursor: pointer

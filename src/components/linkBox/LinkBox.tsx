@@ -16,15 +16,19 @@ function LinkBox() {
   const newLinkDB: Link[] = matchingLink?.links || [];
 
   return (
-    <div className={styles.box}>
-      {newLinkDB.map((element, index) => (
-        <LinkBtn
-          key={index}
-          name={element.linkName}
-          direction={element.direction}
-        />
-      ))}
-    </div>
+    <>
+      <div className={styles.box}>
+        {newLinkDB.map((element, index) => (
+          <LinkBtn
+            key={index}
+            name={element.linkName}
+            direction={element.direction}
+            click={() => {}}
+          />
+        ))}
+      </div>
+      
+    </>
   );
 }
 
