@@ -17,7 +17,7 @@ function CategoryBox() {
     if (isEditable) {
       e.preventDefault();
       const updatedLinks = editableLinks.filter(
-        (link) => link.name !== elementName
+        (link: any) => link.name !== elementName
       );
       setEditableLinks(updatedLinks);
     }
@@ -26,7 +26,7 @@ function CategoryBox() {
   return (
     <>
       <div className={styles.box}>
-        {editableLinks.map((element) => (
+        {editableLinks.map((element: any) => (
           <LinkBtn
             key={element.name}
             name={element.name}
