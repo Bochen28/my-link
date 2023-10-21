@@ -1,11 +1,33 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { setLinksDB } from "@/data/links";
 import Backdrop from "@/components/backdrop/backdrop";
 import styles from "./page.module.sass";
 
 function Home() {
   const [isModalOpen, setModalOpen] = useState(false);
+  const [textareaValue, setTextareaValue] = useState("");
+  const router = useRouter();
+
+  const handleSend = (e: any) => {
+    e.preventDefault();
+    if (textareaValue) {
+      try {
+        const parsedValue = JSON.parse(textareaValue);
+        if (Array.isArray(parsedValue)) {
+          setLinksDB(parsedValue);
+          router.push("/home");
+        }
+      } catch (error) {
+        console.error("Invalid data format.");
+      }
+    }
+
+    setModalOpen(false);
+    setTextareaValue("");
+  };
 
   return (
     <main className={styles.main}>
@@ -39,8 +61,12 @@ function Home() {
                 setModalOpen(false);
               }}
             ></div>
-            <textarea></textarea>
-            <button>Send</button>
+            <textarea
+              id="save"
+              value={textareaValue}
+              onChange={(e) => setTextareaValue(e.target.value)}
+            ></textarea>
+            <button onClick={handleSend}>Send</button>
           </div>
         </>
       ) : null}
