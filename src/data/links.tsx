@@ -8,7 +8,8 @@ if (typeof window !== "undefined") {
   }
 }
 
-export const setLinksDB = () => {
+export const setLinksDB = (updatedLinks: any[]) => {
+  links = updatedLinks;
   localStorage.setItem("DB", JSON.stringify(links));
 };
 

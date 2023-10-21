@@ -7,13 +7,14 @@ interface AddCategoryModalProps {
 }
 
 function AddCategoryModal({ click }: AddCategoryModalProps) {
-  const addNewCategory = (e: any) => {
+  const addNewCategory = (e : any) => {
+    e.preventDefault()
     const linksDB = links;
     const nameField = document.querySelector<HTMLInputElement>("#categoryName");
     const getNameValue = nameField?.value ?? "";
     linksDB.push({ name: getNameValue, links: [] });
-    setLinksDB();
-    console.log(linksDB);
+    setLinksDB(linksDB);
+    window.location.reload();
   };
 
   return (

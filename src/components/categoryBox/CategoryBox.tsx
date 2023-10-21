@@ -1,14 +1,15 @@
 import { useState } from "react";
+import { setLinksDB } from "@/data/links";
 import LinkBtn from "../linkbtn/LinkBtn";
 import Backdrop from "../backdrop/backdrop";
 import AddCategoryModal from "@/components/addCategoryModal/AddCategoryModal";
-import linksDB from "@/data/links";
+import links from "@/data/links";
 import styles from "./categoryBox.module.sass";
 
 function CategoryBox() {
   const [isEditable, setEditable] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
-  const [editableLinks, setEditableLinks] = useState(linksDB);
+  const [editableLinks, setEditableLinks] = useState(links);
 
   const handleLinkClick = (
     elementName: string,
@@ -20,6 +21,7 @@ function CategoryBox() {
         (link: any) => link.name !== elementName
       );
       setEditableLinks(updatedLinks);
+      setLinksDB(updatedLinks);
     }
   };
 
@@ -42,7 +44,7 @@ function CategoryBox() {
               setModalOpen(true);
             }}
           >
-            Add New Link
+            Add New Category
           </a>
         ) : null}
         <a
@@ -56,7 +58,11 @@ function CategoryBox() {
       </div>
       {isModalOpen ? (
         <>
-          <AddCategoryModal click={() => {setModalOpen(false)}} />
+          <AddCategoryModal
+            click={() => {
+              setModalOpen(false);
+            }}
+          />
           <Backdrop
             click={() => {
               setModalOpen(false);
