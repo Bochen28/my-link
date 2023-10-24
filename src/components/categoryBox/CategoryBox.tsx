@@ -33,6 +33,7 @@ function CategoryBox() {
             key={element.name}
             name={element.name}
             direction={isEditable ? "" : `home/${element.name}`}
+            target="_self"
             click={(e) => handleLinkClick(element.name, e)}
           />
         ))}

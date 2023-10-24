@@ -68,6 +68,7 @@ function LinkBox() {
             key={index}
             name={element.name}
             direction={isEditable ? "" : element.url}
+            target="_blank"
             click={(e) => {
               handleLinkClick(element.name, e);
             }}
