@@ -9,7 +9,7 @@
     padding: 2rem
     border-radius: .375rem
     transform: translate(-50%, -50%)
-    background: #FFFFFF
+    background: #303030
 
     h2
         flex-basis: 100%
@@ -29,7 +29,7 @@
     position: absolute
     width: 1rem
     height: .1875rem
-    background-color: #303030
+    background: #FFFFFF
     top: 5%
     right: 5%
     transform: translateY(-50%)
@@ -52,6 +52,9 @@
         height: 20rem
         width: 20rem
         overflow-y: scroll
+        border-radius: .375rem
+        background: #918e8c
+        outline: none
         resize: none
         flex-grow: 1
 
@@ -60,4 +63,8 @@
         width: 100%
         border: none
         border-radius: .375rem
+        background: #a6a29f
         cursor: pointer
+
+        &:hover
+            filter: brightness(0.9)
