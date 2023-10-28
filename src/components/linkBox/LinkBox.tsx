@@ -27,8 +27,18 @@ function LinkBox() {
   const [matchingLink, setMatchingLink] = useState<MatchingLink | null>(null);
   const [newLinkDB, setNewLinkDB] = useState<Link[]>([]);
 
+  const showBorder = {
+    border: isEditable ? ".0625rem solid #FFFFFF" : "none",
+  };
+
+  const showAlert = {
+    opacity: isEditable ? "1" : "0",
+  };
+
   useEffect(() => {
-    const matchedLink = links.find((link: { name: string; }) => link.name === trueUrl);
+    const matchedLink = links.find(
+      (link: { name: string }) => link.name === trueUrl
+    );
     setMatchingLink(matchedLink);
     setNewLinkDB(matchedLink?.links || []);
   }, [trueUrl]);
@@ -42,7 +52,9 @@ function LinkBox() {
 
       const updatedMatchingLink: MatchingLink = {
         ...matchingLink,
-        links: matchingLink.links.filter((link: Link) => link.name !== elementName),
+        links: matchingLink.links.filter(
+          (link: Link) => link.name !== elementName
+        ),
       };
 
       const updatedEditableLinks = editableLinks.map((link: Link) => {
@@ -54,7 +66,6 @@ function LinkBox() {
 
       setEditableLinks(updatedEditableLinks);
       setLinksDB(updatedEditableLinks);
-
       setMatchingLink(updatedMatchingLink);
       setNewLinkDB(updatedMatchingLink.links);
     }
@@ -62,7 +73,17 @@ function LinkBox() {
 
   return (
     <>
-      <div className={styles.box}>
+      <div>
+        <p className={styles.alert} style={showAlert}>
+          You are in edit mode!
+        </p>
+      </div>
+      <div>
+        <p className={styles.alertSmall} style={showAlert}>
+          (click a link to remove it)
+        </p>
+      </div>
+      <div className={styles.box} style={showBorder}>
         {newLinkDB.map((element: Link, index: number) => (
           <LinkBtn
             key={index}
@@ -88,7 +109,7 @@ function LinkBox() {
           className={styles.btn}
           onClick={() => {
             setEditable(!isEditable);
-            console.log(newLinkDB);
+            if (isEditable) window.location.reload();
           }}
         >
           Edit Links

@@ -9,8 +9,15 @@ function Navbar() {
   return (
     <>
       <nav className={styles.navbar}>
-        <h2>My Link</h2>
+        <h2>
+          <a className={styles.logo} href="/">
+            My Link
+          </a>
+        </h2>
         <ul className={styles.optionsList}>
+          <li>
+            <a href="/home">Home</a>
+          </li>
           <li>
             <a
               onClick={() => {
@@ -29,7 +36,11 @@ function Navbar() {
               setBoxDisplay(false);
             }}
           />
-          <SaveBox click={() => {setBoxDisplay(false)}} />
+          <SaveBox
+            click={() => {
+              setBoxDisplay(false);
+            }}
+          />
         </>
       ) : null}
     </>

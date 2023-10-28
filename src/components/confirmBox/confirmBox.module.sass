@@ -1,0 +1,40 @@
+.box
+    z-index: 1
+    position: absolute
+    display: flex
+    justify-content: center
+    gap: 1rem
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    padding: 1rem 0
+    border-radius: .375rem
+    flex-wrap: wrap
+    background: #330033
+
+    h2
+        flex-basis: 100%
+        text-align: center
+
+    p
+        flex-basis: 100%
+        text-align: center
+
+.yes
+    background: #550055
+    padding: 1rem 2rem
+    border-radius: .375rem
+    transition: all 0.3s
+    cursor: pointer
+
+    &:hover
+        background: #440044
+
+.no
+    @extend .yes
+    background: none
+    border: .125rem solid #550055
+    transition: all 0.3s
+
+    &:hover
+        background: #550055
