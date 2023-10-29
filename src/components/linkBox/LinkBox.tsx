@@ -31,9 +31,17 @@ function LinkBox() {
     border: isEditable ? ".0625rem solid #FFFFFF" : "none",
   };
 
-  const showAlert = {
+  const hideEditBtn = {
+    zIndex: isEditable ? "-1" : "0",
+    opacity: isEditable ? "0" : "1",
+  };
+
+  const showEditBtns = {
+    zIndex: isEditable ? "0" : "-1",
     opacity: isEditable ? "1" : "0",
   };
+
+  const editLinkClass = isEditable ? styles.editLink : styles.link;
 
   useEffect(() => {
     const matchedLink = links.find(
@@ -73,15 +81,17 @@ function LinkBox() {
 
   return (
     <>
-      <div>
-        <p className={styles.alert} style={showAlert}>
-          You are in edit mode!
-        </p>
-      </div>
-      <div>
-        <p className={styles.alertSmall} style={showAlert}>
-          (click a link to remove it)
-        </p>
+      <div className={styles.pageTitle}>
+        <h1 className={styles.title}>{isEditable ? "Edit Mode" : trueUrl}</h1>
+        <a
+          className={styles.editBtn}
+          style={hideEditBtn}
+          onClick={() => {
+            setEditable(true);
+          }}
+        >
+          Edit Links
+        </a>
       </div>
       <div className={styles.box} style={showBorder}>
         {newLinkDB.map((element: Link, index: number) => (
@@ -90,45 +100,49 @@ function LinkBox() {
             name={element.name}
             direction={isEditable ? "" : element.url}
             target="_blank"
+            className={editLinkClass}
             click={(e) => {
               handleLinkClick(element.name, e);
             }}
           />
         ))}
-        {isEditable ? (
-          <a
-            className={styles.btn}
-            onClick={() => {
-              setModalOpen(true);
-            }}
-          >
-            Add New Link
-          </a>
-        ) : null}
         <a
-          className={styles.btn}
+          className={styles.addBtn}
+          style={showEditBtns}
           onClick={() => {
-            setEditable(!isEditable);
-            if (isEditable) window.location.reload();
+            setModalOpen(true);
           }}
         >
-          Edit Links
+          Add New Link
         </a>
-        {isModalOpen ? (
-          <>
-            <AddLinkModal
-              click={() => {
-                setModalOpen(false);
-              }}
-            />
-            <Backdrop
-              click={() => {
-                setModalOpen(false);
-              }}
-            />
-          </>
-        ) : null}
+        <p className={styles.hint} style={showEditBtns}>
+          Click a link to remove it
+        </p>
+        <a
+          className={styles.doneBtn}
+          style={showEditBtns}
+          onClick={() => {
+            setEditable(false);
+            window.location.reload();
+          }}
+        >
+          Done
+        </a>
       </div>
+      {isModalOpen ? (
+        <>
+          <AddLinkModal
+            click={() => {
+              setModalOpen(false);
+            }}
+          />
+          <Backdrop
+            click={() => {
+              setModalOpen(false);
+            }}
+          />
+        </>
+      ) : null}
     </>
   );
 }

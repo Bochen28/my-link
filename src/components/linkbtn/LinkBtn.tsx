@@ -1,16 +1,15 @@
-import styles from "./linkBtn.module.sass";
-
 interface LinkBtnProps {
   name: string;
   direction: string;
   target: string;
+  className: string
   click: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-function LinkBtn({ name, direction, target, click }: LinkBtnProps) {
+function LinkBtn({ name, direction, target, className, click }: LinkBtnProps) {
   return (
     <>
-      <a className={styles.link} href={direction} onClick={click} target={target}>
+      <a className={className} href={direction} onClick={click} target={target}>
         {name}
       </a>
     </>

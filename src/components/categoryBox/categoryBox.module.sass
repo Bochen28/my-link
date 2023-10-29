@@ -1,38 +1,94 @@
-.alert
+.pageTitle
+    position: relative
     display: flex
-    justify-content: center
-    padding: 1rem
-    font-size: 1.25rem
-    font-weight: bolder
+    flex-direction: row-reverse
+    padding: 1rem 0
+    width: 80rem
+    margin: 2rem auto
+    border-radius: .375rem
+    border: .0625rem solid #FFFFFF
+    text-align: center
+    text-decoration: none
+    background: #440044
+    color: #FFFFFF
 
-.alertSmall
-    @extend .alert
-    font-size: 1rem
-    
+.title
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+
 .box
+    position: relative
     display: flex
     justify-content: space-between
     align-items: center
     flex-wrap: wrap
     padding: 2rem
     gap: 2rem
+    min-height: 10rem
     width: 80rem
     margin: auto
 
-.btn
+.editBtn
     padding: 0.5rem
-    flex-basis: 45%
+    margin: 0 1rem
     border: .0625rem solid #FFFFFF
     border-radius: .375rem
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.85)
     background: #440044
     font-weight: 700
-    text-align: center
     text-decoration: none
     color: #FFFFFF
     cursor: pointer
+    transition: z-index 0s 0.3s , opacity 0.3s 0.2s, background 0.3s 0s, 
+
+    &:hover
+        background: #330033
+
+
+.addBtn
+    @extend .editBtn
+    position: absolute
+    top: 2rem
+    right: 2rem
+    width: 10rem
+    opacity: 0
+    text-align: center
+
+.doneBtn
+    @extend .editBtn
+    position: absolute
+    bottom: 2rem
+    right: 2rem
+    opacity: 0
+    background: #369c4d
+
+.hint
+    position: absolute
+    top: 5rem
+    right: 2rem
+    width: 10rem
+    padding: 0 2rem
+    opacity: 0
+    color: #9b1e1e
+    transition: z-index 0s 0.3s , opacity 0.3s 0.2s
+
+.link
+    padding: 0.5rem
+    flex-basis: 100%
+    border: .0625rem solid #FFFFFF
+    border-radius: .375rem
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.85)
+    text-align: center
+    text-decoration: none
+    background: #440044
+    color: #FFFFFF
     transition: all 0.5s
 
     &:hover
         transform: scale(1.05)
         box-shadow: 0 0 2rem rgba(0, 0, 0, 0.85)
+
+.editLink
+    @extend .link
+    flex-basis: 80%

@@ -18,9 +18,17 @@ function CategoryBox() {
     border: isEditable ? ".0625rem solid #FFFFFF" : "none",
   };
 
-  const showAlert = {
+  const hideEditBtn = {
+    zIndex: isEditable ? "-1" : "0",
+    opacity: isEditable ? "0" : "1",
+  }
+
+  const showEditBtns = {
+    zIndex: isEditable ? "0" : "-1",
     opacity: isEditable ? "1" : "0",
   };
+
+  const editLinkClass = isEditable ? styles.editLink : styles.link;
 
   const openCofirmBox = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -50,15 +58,19 @@ function CategoryBox() {
 
   return (
     <>
-      <div>
-        <p className={styles.alert} style={showAlert}>
-          You are in edit mode!
-        </p>
-      </div>
-      <div>
-        <p className={styles.alertSmall} style={showAlert}>
-          (click a category to remove it)
-        </p>
+      <div className={styles.pageTitle}>
+        <h1 className={styles.title}>
+          {isEditable ? "Edit Mode" : "Your Categories"}
+        </h1>
+        <a
+          className={styles.editBtn}
+          style={hideEditBtn}
+          onClick={() => {
+            setEditable(true);
+          }}
+        >
+          Edit Categories
+        </a>
       </div>
       <div className={styles.box} style={showBorder}>
         {editableLinks.map((element: any) => (
@@ -67,30 +79,33 @@ function CategoryBox() {
             name={element.name}
             direction={isEditable ? "" : `home/${element.name}`}
             target="_self"
+            className={editLinkClass}
             click={(e) => {
               openCofirmBox(e, element.name);
             }}
           />
         ))}
-
-        {isEditable ? (
-          <a
-            className={styles.btn}
-            onClick={() => {
-              setModalOpen(true);
-            }}
-          >
-            Add New Category
-          </a>
-        ) : null}
         <a
-          className={styles.btn}
+          className={styles.addBtn}
+          style={showEditBtns}
           onClick={() => {
-            setEditable(!isEditable);
-            if (isEditable) window.location.reload();
+            setModalOpen(true);
           }}
         >
-          Edit Categories
+          Add New Category
+        </a>
+        <p className={styles.hint} style={showEditBtns}>
+          Click a category to remove it
+        </p>
+        <a
+          className={styles.doneBtn}
+          style={showEditBtns}
+          onClick={() => {
+            setEditable(false);
+            window.location.reload();
+          }}
+        >
+          Done
         </a>
       </div>
       {isModalOpen ? (
