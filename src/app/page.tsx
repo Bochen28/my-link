@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { setLinksDB } from "@/data/links";
+import { color, setLinksDB } from "@/data/local";
 import Backdrop from "@/components/backdrop/backdrop";
 import styles from "./page.module.sass";
 
@@ -10,6 +10,10 @@ function Home() {
   const [isModalOpen, setModalOpen] = useState(false);
   const [textareaValue, setTextareaValue] = useState("");
   const router = useRouter();
+
+  useEffect(() => {
+    document.documentElement.style.setProperty("--theme-color", color);
+  }, []);
 
   const handleSend = (e: any) => {
     e.preventDefault();

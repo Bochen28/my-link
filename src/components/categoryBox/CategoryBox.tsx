@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { setLinksDB } from "@/data/links";
+import { setLinksDB } from "@/data/local";
 import LinkBtn from "../linkbtn/LinkBtn";
 import Backdrop from "../backdrop/backdrop";
 import AddCategoryModal from "@/components/addCategoryModal/AddCategoryModal";
 import ConfirmBox from "../confirmBox/confirmBox";
-import links from "@/data/links";
+import {links} from "@/data/local";
 import styles from "./categoryBox.module.sass";
 
 function CategoryBox() {

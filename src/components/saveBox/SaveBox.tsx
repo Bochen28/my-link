@@ -1,11 +1,11 @@
 import styles from "./saveBox.module.sass";
-import links from "@/data/links";
+import links from "@/data/local";
 
-interface AddLinkModalProps {
+interface SaveModalProps {
   click: () => void;
 }
 
-function SaveBox({ click }: AddLinkModalProps) {
+function SaveBox({ click }: SaveModalProps) {
   const linksString = JSON.stringify(links);
 
   const handleCopyToClipboard = (e: React.MouseEvent) => {

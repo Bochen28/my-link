@@ -1,5 +1,5 @@
-import links from "@/data/links";
-import { setLinksDB } from "@/data/links";
+import links from "@/data/local";
+import { setLinksDB } from "@/data/local";
 import styles from "./addCategoryModal.module.sass";
 
 interface AddCategoryModalProps {

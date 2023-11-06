@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { setLinksDB } from "@/data/links";
+import { setLinksDB } from "@/data/local";
 import LinkBtn from "../linkbtn/LinkBtn";
 import Backdrop from "../backdrop/backdrop";
 import AddLinkModal from "../addLinkModal/AddLinkModal";
-import links from "@/data/links";
+import {links} from "@/data/local";
 import styles from "./linkBox.module.sass";
 
 interface Link {

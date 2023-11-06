@@ -2,10 +2,13 @@
     z-index: 1
     position: absolute
     display: flex
+    justify-content: space-between
+    align-items: center
     flex-wrap: wrap
     gap: 1rem
     top: 50%
     left: 50%
+    width: 25rem
     padding: 2rem
     border-radius: .375rem
     transform: translate(-50%, -50%)
@@ -17,8 +20,8 @@
 
 .xButton
     position: absolute
-    top: 3%
-    right: 3%
+    top: 10%
+    right: 5%
     height: 1rem
     width: 1rem
     cursor: pointer
@@ -40,31 +43,12 @@
 .xButton::before
     transform: rotate(-45deg)
 
-.saveForm
-    display: flex
-    flex-wrap: wrap
-    top: 15%
-    gap: 0.5rem
+.changeBtn
+    flex-basis: 100%
+    height: 2rem
 
-    textarea
-        flex-basis: 100%
-        padding: 0.2rem
-        height: 20rem
-        width: 20rem
-        overflow-y: scroll
-        border-radius: .375rem
-        background: #FFFFFF
-        outline: none
-        resize: none
-        flex-grow: 1
+.colorLabel
+    width: 20%
 
-    button
-        height: 2rem
-        width: 100%
-        border: none
-        border-radius: .375rem
-        background: #FFFFFF
-        cursor: pointer
-
-        &:hover
-            filter: brightness(0.9)
+.colorPicker
+    width: 70%

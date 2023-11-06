@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Backdrop from "../backdrop/backdrop";
 import SaveBox from "../saveBox/SaveBox";
+import SettingsBox from "../settingsBox/SettingsBox";
 import styles from "./navbar.module.sass";
 
 function Navbar() {
-  const [boxDisplay, setBoxDisplay] = useState(false);
+  const [saveDisplay, setSaveDisplay] = useState(false);
+  const [settingsDisplay, setSettingsDisplay] = useState(false);
 
   return (
     <>
@@ -21,24 +23,47 @@ function Navbar() {
           <li>
             <a
               onClick={() => {
-                setBoxDisplay(true);
+                setSaveDisplay(true);
               }}
             >
               Save Links
             </a>
           </li>
+          <li>
+            <a
+              onClick={() => {
+                setSettingsDisplay(true);
+              }}
+            >
+              Settings
+            </a>
+          </li>
         </ul>
       </nav>
-      {boxDisplay ? (
+      {saveDisplay ? (
         <>
           <Backdrop
             click={() => {
-              setBoxDisplay(false);
+              setSaveDisplay(false);
             }}
           />
           <SaveBox
             click={() => {
-              setBoxDisplay(false);
+              setSaveDisplay(false);
+            }}
+          />
+        </>
+      ) : null}
+      {settingsDisplay ? (
+        <>
+          <Backdrop
+            click={() => {
+              setSettingsDisplay(false);
+            }}
+          />
+          <SettingsBox
+            click={() => {
+              setSettingsDisplay(false);
             }}
           />
         </>

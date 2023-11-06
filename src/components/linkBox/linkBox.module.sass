@@ -3,13 +3,13 @@
     display: flex
     flex-direction: row-reverse
     padding: 1rem 0
-    width: 80rem
+    width: 95%
     margin: 2rem auto
     border-radius: .375rem
     border: .0625rem solid #FFFFFF
     text-align: center
     text-decoration: none
-    background: #440044
+    background: var(--theme-color-darker)
     color: #FFFFFF
 
 .title
@@ -21,13 +21,12 @@
 .box
     position: relative
     display: flex
-    justify-content: space-between
+    justify-content: center
     align-items: center
     flex-wrap: wrap
     padding: 2rem
     gap: 2rem
     min-height: 10rem
-    width: 80rem
     margin: auto
 
 .editBtn
@@ -35,7 +34,7 @@
     margin: 0 1rem
     border: .0625rem solid #FFFFFF
     border-radius: .375rem
-    background: #440044
+    background: var(--theme-color-darker)
     font-weight: 700
     text-decoration: none
     color: #FFFFFF
@@ -43,7 +42,7 @@
     transition: z-index 0s 0.3s , opacity 0.3s 0.2s, background 0.3s 0s,
 
     &:hover
-        background: #330033
+        background: var(--theme-color)
 
 .addBtn
     @extend .editBtn
@@ -74,13 +73,13 @@
 
 .link
     padding: 0.5rem
-    flex-basis: 100%
+    flex-basis: 90%
     border: .0625rem solid #FFFFFF
     border-radius: .375rem
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.85)
     text-align: center
     text-decoration: none
-    background: #440044
+    background: var(--theme-color-darker)
     color: #FFFFFF
     transition: all 0.5s
 
@@ -90,4 +89,4 @@
 
 .editLink
     @extend .link
-    flex-basis: 80%
+    flex-basis: 60%
