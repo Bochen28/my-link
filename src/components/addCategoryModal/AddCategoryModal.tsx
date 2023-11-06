@@ -1,4 +1,4 @@
-import links from "@/data/local";
+import {links} from "@/data/local";
 import { setLinksDB } from "@/data/local";
 import styles from "./addCategoryModal.module.sass";
 
