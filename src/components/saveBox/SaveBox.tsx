@@ -1,5 +1,5 @@
 import styles from "./saveBox.module.sass";
-import links from "@/data/local";
+import { links } from "@/data/local";
 
 interface SaveModalProps {
   click: () => void;
