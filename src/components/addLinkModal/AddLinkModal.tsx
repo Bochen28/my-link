@@ -1,4 +1,4 @@
-import links from "@/data/local";
+import { links } from "@/data/local";
 import { setLinksDB } from "@/data/local";
 import { useRouter } from "next/router";
 import styles from "./addLinkModal.module.sass";
